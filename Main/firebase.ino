@@ -16,6 +16,7 @@ String fetchStringData()
      else
      {
       Serial.println(firebaseData.errorReason());
+      return "";
      }
 }
 
