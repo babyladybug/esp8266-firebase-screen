@@ -60,7 +60,7 @@ void handleSettingUpdate()
   File configFile = SPIFFS.open("/config.json","w");
   serializeJson(doc, configFile);
   serializeJson(doc, Serial);
-  configFile.();
+  configFile.close();
   server.send(200,"application/json","{\"status\":\"ok\"}");
   delay(500);
   readFlashJson();
