@@ -107,7 +107,7 @@ void longPressDown()
 
 void longPressStopUp()
 {
-   if(currentScreen === ASK_HELP)
+   if(currentScreen == ASK_HELP)
     {
       sentText = dictionary[wordCount];
       insertData(sentText);
