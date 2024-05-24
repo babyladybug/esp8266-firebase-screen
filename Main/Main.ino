@@ -1,7 +1,3 @@
-  /*
-  The program has 4 errors, which are very easy to fix, either compile and figure out
-  or goodluck if you are good with GitHub XD
-*/
 
 //Include Firebase ESP8266 library for firebase support
 #include "FirebaseESP8266.h"\
@@ -27,9 +23,9 @@
 #include <FS.h>
 
 //Enter the realtime database link here
-#define FIREBASE_HOST "***"
+#define FIREBASE_HOST "https://casio-5e6f3-default-rtdb.asia-southeast1.firebasedatabase.app/"
 //Enter the webAPI key from setttings here
-#define FIREBASE_AUTH "***"
+#define FIREBASE_AUTH "AIzaSyCnbruR9nVKIbkSZTpYtp4RWNRiHQ9R0KM"
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 32 // OLED display height, in pixels
@@ -47,8 +43,8 @@ Screen;
 Screen currentScreen = MENU;
 
 // Hotspot where your calculator should connect
-const char* password = "***";
-const char* ssid = "***";
+const char* password = "99995555";
+const char* ssid = "nlu-sv";
 
 //for selecting the menu
 bool selection = false;
@@ -79,6 +75,8 @@ OneButton downButton(13, true);
 
 //firebaseData object(this contatins the table from realtime database)
 FirebaseData firebaseData;
+FirebaseAuth auth;
+FirebaseConfig config;
 
 //creating a webserver
 ESP8266WebServer server(80);
@@ -96,8 +94,9 @@ void setup() {
 /*for debugging*/
 //  Serial.begin(115200);
 //  Serial.println("Started!");
-
-  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
+config.database_url = FIREBASE_HOST;
+config.api_key = FIREBASE_AUTH;
+  Firebase.begin(&config,&auth);
   Firebase.reconnectWiFi(true);
 
   if (!SPIFFS.begin())
