@@ -50,7 +50,7 @@ void selectedScreen()
   switch(currentScreen)
   {
     case MENU:
-      menu()
+      menu();
       break;
     case DOWNLOADS:
       dowloadsScreen();
