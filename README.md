@@ -7,9 +7,9 @@ Clone the repo, open with arduino IDE [Tested on Arudino IDE 2.2.4 above]
 
 ### Prerequisites
 
-Arduino Libraries for WIFI, JSON, Firebase and Mulit-Tap funtions
+Arduino Libraries for WIFI, JSON, Firebase ,Mulit-Tap funtions and
 
-* [ESP8266](https://github.com/esp8266/Arduino) -ESP8266 core
+* [ESP8266](https://github.com/esp8266/Arduino) -ESP8266 core Adafruit_GFX
 * Adafruit_GFX
 * Adafruit_SSD1306
 * [Arduino JSON](https://github.com/bblanchon/ArduinoJson) - by bblanchon
