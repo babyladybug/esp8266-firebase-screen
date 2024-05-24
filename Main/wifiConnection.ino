@@ -1,7 +1,7 @@
 //boots the server if there there is magnet place near the hall effect sensor
 void bootServer()
 {
-  if(!digitalRead(12))
+  if(digitalRead(12))
   {
   WiFi.softAPdisconnect(true);  
   WiFi.disconnect();
@@ -12,7 +12,7 @@ void bootServer()
     text("192.168.11.4",1,10,17,false,true);
     WiFi.softAPConfig(local_ip, gateway, netmask);
     WiFi.mode(WIFI_AP);
-    WiFi.softAP("Calculator", "donotcheat"); 
+    WiFi.softAP("nlu-gv", "09052005"); 
     startServer();
     updateScreen = false;
     }
