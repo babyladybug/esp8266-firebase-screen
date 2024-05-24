@@ -23,9 +23,9 @@
 #include <FS.h>
 
 //Enter the realtime database link here
-#define FIREBASE_HOST "https://casio-5e6f3-defa99lt-rtdb.asia-southeast1.firebasedatabase.app/"
+#define FIREBASE_HOST "***"
 //Enter the webAPI key from setttings here
-#define FIREBASE_AUTH "AIzaSyCnbru90909090RiHQ9R0KM"
+#define FIREBASE_AUTH "***"
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 32 // OLED display height, in pixels
