@@ -1,5 +1,5 @@
 # esp-oled-firebase-Integration
-all inch OLED and a arduino or esp32,esp8266, which is integrated to firebase to fetch text file and send and receive text message.
+all inch OLED and a esp32,esp8266, which is integrated to firebase to fetch text file and send and receive text message.
 The project is developed based on the source code of @neutrino
 ### Getting Started
 
