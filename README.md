@@ -10,7 +10,6 @@ Clone the repo, open with arduino IDE [Tested on Arudino IDE 2.2.4 above]
 Arduino Libraries for WIFI, JSON, Firebase ,Mulit-Tap funtions and U8g2lib
 
 * ESP8266 or ESP32
-* Wire
 * U8g2lib
 * [Arduino JSON](https://github.com/bblanchon/ArduinoJson) - by bblanchon
 * [Firebase](https://github.com/mobizt/Firebase-ESP8266) - by mobizt
