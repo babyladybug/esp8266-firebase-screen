@@ -50,19 +50,27 @@ void startServer()
 }
 
 //this function gets the URL and stores in the flash memory
-void handleSettingUpdate()
-{
+void handleSettingUpdate() {
   String data = server.arg("plain");  
-  const size_t capacity = JSON_OBJECT_SIZE(1) + 160;
-  //json buffer to store the json
+  
+  // Define a fixed capacity for the JSON document, adjust as needed
+  const size_t capacity = 1024;
+  
+  // JSON buffer to store the JSON
   DynamicJsonDocument doc(capacity);
-  deserializeJson(doc,data);
-  File configFile = SPIFFS.open("/config.json","w");
+  
+  deserializeJson(doc, data);
+  
+  File configFile = SPIFFS.open("/config.json", "w");
+  
   serializeJson(doc, configFile);
   serializeJson(doc, Serial);
   configFile.close();
-  server.send(200,"application/json","{\"status\":\"ok\"}");
+  
+  server.send(200, "application/json", "{\"status\":\"ok\"}");
+  
   delay(500);
+  
   readFlashJson();
   SPIFFS.remove(textFilePath);
   textFile = "";
