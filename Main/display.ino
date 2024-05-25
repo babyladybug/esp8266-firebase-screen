@@ -1,64 +1,54 @@
-//Drawing text on OLED. Just simplified the whole process so I can do it in single line .
-void text(String s,int size,int cX,int cY,bool clear,bool inverse)
-{
+void text(String s, int size, int cX, int cY, bool clear, bool inverse) {
+  if (clear) {
+    display.clearBuffer(); // Clear the buffer
+  }
   
-  if(clear)
-  {
-    display.clearDisplay();
+  // Set text color based on inverse flag
+  if (inverse) {
+    display.setColorIndex(0); // Set text color to black
+  } else {
+    display.setColorIndex(1); // Set text color to white
   }
-  if(inverse)
-  {
-    display.setTextColor(BLACK,WHITE);
-  }
-  else
-  {
-    display.setTextColor(WHITE);
-  }
-    display.setTextSize(size);
-    display.setCursor(cX,cY); 
-    display.println(s);
-    display.display();  
-  
+
+  display.setFont(u8g2_font_ncenB10_tr); // Set font size
+  display.setCursor(cX, cY); // Set text cursor position
+  display.print(s); // Print the text
+  display.sendBuffer(); // Send the buffer to the display
 }
 
-//Menu Screen
-void menu()
-{
-    text("Download",2,0,0,true,!selection);
-    text("Ask Help",2,0,17,false,selection);
+// Menu Screen
+void menu() {
+  text("Download", 2, 0, 20, true, selection);
+  text("Ask Help", 2, 0, 40, false, selection);
 }
 
-//downloads screen
-void dowloadsScreen()
-{
-    text(textFile,1,0,scrollyDir,true,false);
-    delay(250);
+// Downloads screen
+void downloadsScreen() {
+  text(textFile, 1, 0, scrollyDir, true, false);
+  delay(250);
 }
 
-//help screen
-void HelpScreen()
-{
-    text(fetchStringData(),2,0,0,true,false);
-    text(sentText,1,128-(sentText.length()*6),0,false,false);
-    text(dictionary[wordCount],2,0,17,false,true);
-    delay(250);
+// Help screen
+void HelpScreen() {
+  text(fetchStringData(), 2, 0, 20, true, false);
+  text(sentText, 1, 128 - (sentText.length() * 6), 40, false, false);
+  text(dictionary[wordCount], 2, 0, 40, false, true);
+  delay(250);
 }
 
-//This tracks which screen is selected
-void selectedScreen()
-{
-  switch(currentScreen)
-  {
+// This function tracks which screen is selected
+void selectedScreen() {
+  switch (currentScreen) {
     case MENU:
       menu();
       break;
     case DOWNLOADS:
-      dowloadsScreen();
+      downloadsScreen();
       break;
     case ASK_HELP:
       HelpScreen();
       break;
     default:
-      text("something we wrong!",1,0,0,true,false);   
-  }  
+      text("Something went wrong!", 1, 0, 20, true, false);
+  }
 }
